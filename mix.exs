@@ -7,7 +7,7 @@ defmodule DarkDev.MixProject do
 
   @version "1.0.2"
   @name "DarkDev"
-  @hexpm_url "http://hexdocs.pm/dark-elixir/dark_dev"
+  @hexpm_url "http://hexdocs.pm/dark_dev"
   @github_url "https://github.com/dark-elixir/dark_dev"
   @description "Libraries and utils for general elixir development."
 
