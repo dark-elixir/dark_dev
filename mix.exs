@@ -5,7 +5,7 @@ defmodule DarkDev.MixProject do
 
   use Mix.Project
 
-  @version "1.0.0"
+  @version "1.0.1"
   @hexpm_url "http://hexdocs.pm/dark-elixir/dark_dev"
   @github_url "https://github.com/dark-elixir/dark_dev"
   @description "Libraries and utils for general elixir development."
@@ -41,16 +41,16 @@ defmodule DarkDev.MixProject do
   defp deps do
     [
       # Analysis
-      {:ex_check, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:credo, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:credo_naming, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:credo_contrib, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:dialyxir, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:ex_doc, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:sobelow, ">= 0.0.0", only: [:dev, :test], runtime: false},
+      {:ex_check, ">= 0.0.0", runtime: false},
+      {:credo, ">= 0.0.0", runtime: false},
+      {:credo_naming, ">= 0.0.0", runtime: false},
+      {:credo_contrib, ">= 0.0.0", runtime: false},
+      {:dialyxir, ">= 0.0.0", runtime: false},
+      {:ex_doc, ">= 0.0.0", runtime: false},
+      {:sobelow, ">= 0.0.0", runtime: false},
 
       # Testing
-      {:mix_test_watch, ">= 0.0.0", only: :dev, runtime: false}
+      {:mix_test_watch, ">= 0.0.0", runtime: false}
     ]
   end
 
