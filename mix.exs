@@ -25,24 +25,17 @@ defmodule DarkDev.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      # Analysis
       {:ex_check, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:credo, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:credo_naming, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:credo_contrib, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:dialyxir, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: [:dev, :test], runtime: false},
-      {:sobelow, ">= 0.0.0", only: [:dev, :test], runtime: false}
+      {:sobelow, ">= 0.0.0", only: [:dev, :test], runtime: false},
+
+      # Testing
+      {:mix_test_watch, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
-
-  # def aliases do
-  #   [
-  #     # Mix Check
-  #     "mix check.gen.config",
-  #     # Mix credo
-  #     "touch '.dialyzer_ignore.exs'",
-  #     # Mix sobelow,
-  #     "mix sobelow --save-config"
-  #   ]
-  # end
 end
