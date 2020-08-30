@@ -1,6 +1,6 @@
 # DarkDev
 
-**TODO: Add description**
+Dependencies for development environment.
 
 ## Installation
 
@@ -10,7 +10,7 @@ by adding `dark_dev` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:dark_dev, "~> 0.1.0"}
+    {:dark_dev, "~> 1.0.2"}
   ]
 end
 ```
