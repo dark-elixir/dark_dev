@@ -57,8 +57,7 @@ defmodule DarkDev.MixProject do
   defp package() do
     [
       maintainers: ["Michael Sitchenko"],
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
-                license* CHANGELOG* changelog* src),
+      files: ~w(lib priv .formatter.exs mix.exs README* LICENSE* CHANGELOG*),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => @github_url}
     ]
