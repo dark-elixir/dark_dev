@@ -6,6 +6,7 @@ defmodule DarkDev.MixProject do
   use Mix.Project
 
   @version "1.0.1"
+  @name "DarkDev"
   @hexpm_url "http://hexdocs.pm/dark-elixir/dark_dev"
   @github_url "https://github.com/dark-elixir/dark_dev"
   @description "Libraries and utils for general elixir development."
@@ -25,7 +26,7 @@ defmodule DarkDev.MixProject do
       source_url: @github_url,
 
       # Docs
-      name: "DarkDev",
+      name: @name,
       docs: docs()
     ]
   end
@@ -65,7 +66,7 @@ defmodule DarkDev.MixProject do
 
   defp docs do
     [
-      main: "DarkDev",
+      main: @name,
       source_ref: "v#{@version}",
       canonical: @hexpm_url,
       logo: "guides/images/dark-elixir.png",
@@ -86,8 +87,7 @@ defmodule DarkDev.MixProject do
 
   defp groups_for_extras do
     [
-      Introduction: ~r/guides\/introduction\/.?/,
-      "How-To's": ~r/guides\/howtos\/.?/
+      # Introduction: ~r/guides\/introduction\/.?/,
     ]
   end
 end
