@@ -1,17 +1,32 @@
 defmodule DarkDev.MixProject do
   @moduledoc """
-  `DarkDev`
+  Mix Project for `DarkDev`.
   """
 
   use Mix.Project
 
+  @version "1.0.0"
+  @hexpm_url "http://hexdocs.pm/dark-elixir/dark_dev"
+  @github_url "https://github.com/dark-elixir/dark_dev"
+  @description "Libraries and utils for general elixir development."
+
   def project do
     [
       app: :dark_dev,
-      version: "1.0.0",
+      version: @version,
       elixir: "~>1.10",
+      deps: deps(),
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      dialyzer: [plt_add_apps: [:mix]],
+
+      # Hex
+      description: @description,
+      package: package(),
+      source_url: @github_url,
+
+      # Docs
+      name: "DarkDev",
+      docs: docs()
     ]
   end
 
@@ -36,6 +51,44 @@ defmodule DarkDev.MixProject do
 
       # Testing
       {:mix_test_watch, ">= 0.0.0", only: :dev, runtime: false}
+    ]
+  end
+
+  defp package() do
+    [
+      maintainers: ["Michael Sitchenko"],
+      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
+                license* CHANGELOG* changelog* src),
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => @github_url}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "DarkDev",
+      source_ref: "v#{@version}",
+      canonical: @hexpm_url,
+      logo: "guides/images/dark-elixir.png",
+      extra_section: "GUIDES",
+      source_url: @github_url,
+      extras: extras(),
+      groups_for_extras: groups_for_extras(),
+      groups_for_modules: []
+    ]
+  end
+
+  def extras() do
+    [
+      # "guides/introduction/Getting Started.md",
+      "README.md"
+    ]
+  end
+
+  defp groups_for_extras do
+    [
+      Introduction: ~r/guides\/introduction\/.?/,
+      "How-To's": ~r/guides\/howtos\/.?/
     ]
   end
 end
