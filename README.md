@@ -10,7 +10,7 @@ by adding `dark_dev` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:dark_dev, "~> 1.0.3"}
+    {:dark_dev, "~> 1.0.4"}
   ]
 end
 ```
