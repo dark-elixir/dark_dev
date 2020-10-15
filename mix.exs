@@ -18,7 +18,7 @@ defmodule DarkDev.MixProject do
       elixir: "~>1.10",
       deps: deps(),
       start_permanent: Mix.env() == :prod,
-      dialyzer: [plt_add_apps: [:mix]],
+      dialyzer: [plt_add_apps: [:mix, :eex]],
 
       # Hex
       description: @description,
