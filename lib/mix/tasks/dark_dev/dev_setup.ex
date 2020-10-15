@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.InitDarkDev do
+defmodule Mix.Tasks.DarkDev.DevSetup do
   @moduledoc """
   Setup initial configs.
   """
