@@ -5,9 +5,9 @@ defmodule <%= @project.module %>.MixProject do
 
   use Mix.Project
 
-  @app :<%= @project.app %>
   @version "1.0.0"
 
+  @app :<%= @project.app %>
   @name "<%= @project.module %>"
   @github_organization "github_organization"
   @hexpm_url "http://hexdocs.pm/#{@app}"

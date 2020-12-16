@@ -5,9 +5,9 @@ defmodule DarkDev.MixProject do
 
   use Mix.Project
 
-  @app :dark_dev
-  @version "1.0.7"
+  @version "1.0.8"
 
+  @app :dark_dev
   @name "DarkDev"
   @github_organization "dark-elixir"
   @hexpm_url "http://hexdocs.pm/#{@app}"
