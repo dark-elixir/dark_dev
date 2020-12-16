@@ -46,5 +46,10 @@ config/*.secret.exs
 /.vscode/
 *.sublime-workspace
 
+# Misc
+.iex-history
+.DS_Store
+.envrc
+
 # Temporary files for e.g. tests
 /tmp

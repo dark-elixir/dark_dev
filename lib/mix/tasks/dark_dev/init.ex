@@ -10,7 +10,7 @@ defmodule Mix.Tasks.DarkDev.Init do
   @regex_mix_project_app ~r/\s+app:\s+\:([a-z_]+),?\s+/
   @regex_mix_project_module ~r/(\S+)(?=\.)/
 
-  @template_dir "priv/templates/" |> Path.expand()
+  @template_dir Path.expand("priv/templates/")
 
   @templates [
     mix: {"mix.exs.eex", "mix.exs"},
@@ -66,7 +66,7 @@ defmodule Mix.Tasks.DarkDev.Init do
   end
 
   defp read_mix_project_app do
-    contents = "mix.exs" |> File.read!()
+    contents = File.read!("mix.exs")
     [app] = Regex.run(@regex_mix_project_app, contents, capture: :all_but_first)
     app
   end

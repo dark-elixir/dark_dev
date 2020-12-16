@@ -1,4 +1,10 @@
-# Used by "mix format"
 [
-  inputs: ["{mix,.formatter}.exs", "{config,lib,test}/**/*.{ex,exs}"]
+  import_deps: [],
+  inputs: [
+    "*.{ex,exs}",
+    "{config,lib,test}/**/*.{ex,exs}",
+    ".sobelow-conf"
+  ],
+  subdirectories: [],
+  locals_without_parens: []
 ]

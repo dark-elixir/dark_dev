@@ -5,36 +5,65 @@ defmodule DarkDev.MixProject do
 
   use Mix.Project
 
-  @version "1.0.4"
+  @version "1.0.5"
   @name "DarkDev"
   @hexpm_url "http://hexdocs.pm/dark_dev"
   @github_url "https://github.com/dark-elixir/dark_dev"
   @description "Libraries and utils for general elixir development."
+  @maintainers ["Michael Sitchenko"]
 
   def project do
     [
       app: :dark_dev,
       version: @version,
-      elixir: "~>1.10",
-      deps: deps(),
+      elixir: ">= 1.6.0",
       start_permanent: Mix.env() == :prod,
       dialyzer: [plt_add_apps: [:mix, :eex]],
-
-      # Hex
-      description: @description,
+      preferred_cli_env: preferred_cli_env(),
+      dialyzer: dialyzer(),
+      aliases: aliases(),
       package: package(),
-      source_url: @github_url,
-
-      # Docs
-      name: @name,
-      docs: docs()
-    ]
+      deps: deps()
+    ] ++ docs()
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
+    [extra_applications: [:logger]]
+  end
+
+  defp dialyzer do
     [
-      extra_applications: [:logger]
+      plt_add_deps: :app_tree,
+      plt_add_apps: [:ex_unit, :iex],
+      ignore_warnings: ".dialyzer_ignore.exs",
+      list_unused_filters: true,
+      flags: [
+        # Useful additions
+        :error_handling,
+        :no_opaque,
+        :race_conditions,
+        :underspecs,
+        :unmatched_returns,
+
+        # Strict (annoying / low-impact)
+        # :overspecs,
+        # :specdiffs,
+
+        # Less common / potentially confusing
+        # (Can disable without much consequence)
+        :no_behaviours,
+        :no_contracts,
+        :no_fail_call,
+        :no_fun_app,
+        :no_improper_lists,
+        :no_match,
+        :no_missing_calls,
+        :no_return,
+        :no_undefined_callbacks,
+        :no_unused,
+        :unknown
+      ]
     ]
   end
 
@@ -55,9 +84,22 @@ defmodule DarkDev.MixProject do
     ]
   end
 
+  defp preferred_cli_env do
+    [
+      check: :test,
+      credo: :test,
+      dialyzer: :test,
+      sobelow: :test
+    ]
+  end
+
+  defp aliases do
+    []
+  end
+
   defp package() do
     [
-      maintainers: ["Michael Sitchenko"],
+      maintainers: @maintainers,
       files: ~w(lib priv .formatter.exs mix.exs README* LICENSE* CHANGELOG*),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => @github_url}
@@ -66,28 +108,28 @@ defmodule DarkDev.MixProject do
 
   defp docs do
     [
-      main: @name,
       source_ref: "v#{@version}",
+      name: @name,
+      main: @name,
+      description: @description,
       canonical: @hexpm_url,
-      logo: "guides/images/dark-elixir.png",
-      extra_section: "GUIDES",
       source_url: @github_url,
-      extras: extras(),
-      groups_for_extras: groups_for_extras(),
-      groups_for_modules: []
-    ]
-  end
-
-  def extras() do
-    [
-      # "guides/introduction/Getting Started.md",
-      "README.md"
-    ]
-  end
-
-  defp groups_for_extras do
-    [
-      # Introduction: ~r/guides\/introduction\/.?/,
+      homepage_url: @github_url,
+      docs: [
+        logo: "guides/images/dark-elixir.png",
+        extra_section: "GUIDES",
+        extras: [
+          "README.md"
+          # "guides/introduction/Getting Started.md",
+          # "docs/GLOSSARY.md",
+          # "docs/OVERVIEW.md",
+        ],
+        groups_for_extras: [
+          # Introduction: ~r/guides\/introduction\/.?/,
+          # Domains: Path.wildcard("docs/domains/*.md"),
+        ],
+        groups_for_modules: []
+      ]
     ]
   end
 end
