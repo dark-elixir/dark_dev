@@ -5,17 +5,19 @@ defmodule <%= @project.module %>.MixProject do
 
   use Mix.Project
 
+  @app :<%= @project.app %>
   @version "1.0.0"
+
   @name "<%= @project.module %>"
-  @organization "organization"
-  @hexpm_url "http://hexdocs.pm/<%= @project.app %>"
-  @github_url "https://github.com/#{@organization}/<%= @project.app %>"
-  @description ""
+  @github_organization "github_organization"
+  @hexpm_url "http://hexdocs.pm/#{@app}"
+  @github_url "https://github.com/#{@github_organization}/#{@app}"
   @maintainers ["<%= "whoami" |> System.cmd([]) |> elem(0) |> String.trim() %>"]
+  @description ""
 
   def project do
     [
-      app: :<%= @project.app %>,
+      app: @app,
       version: @version,
       elixir: "~> 1.11",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -53,8 +55,8 @@ defmodule <%= @project.module %>.MixProject do
         :unmatched_returns,
 
         # Strict (annoying / low-impact)
-        # :overspecs,
-        # :specdiffs,
+        :overspecs,
+        :specdiffs,
 
         # Less common / potentially confusing
         # (Can disable without much consequence)

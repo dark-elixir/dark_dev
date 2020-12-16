@@ -5,16 +5,19 @@ defmodule DarkDev.MixProject do
 
   use Mix.Project
 
-  @version "1.0.6"
+  @app :dark_dev
+  @version "1.0.7"
+
   @name "DarkDev"
-  @hexpm_url "http://hexdocs.pm/dark_dev"
-  @github_url "https://github.com/dark-elixir/dark_dev"
-  @description "Libraries and utils for general elixir development."
+  @github_organization "dark-elixir"
+  @hexpm_url "http://hexdocs.pm/#{@app}"
+  @github_url "https://github.com/#{@github_organization}/#{@app}"
   @maintainers ["Michael Sitchenko"]
+  @description "Libraries and utils for general elixir development."
 
   def project do
     [
-      app: :dark_dev,
+      app: @app,
       version: @version,
       elixir: ">= 1.6.0",
       start_permanent: Mix.env() == :prod,
@@ -47,8 +50,8 @@ defmodule DarkDev.MixProject do
         :unmatched_returns,
 
         # Strict (annoying / low-impact)
-        # :overspecs,
-        # :specdiffs,
+        :overspecs,
+        :specdiffs,
 
         # Less common / potentially confusing
         # (Can disable without much consequence)
