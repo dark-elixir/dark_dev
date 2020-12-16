@@ -22,6 +22,7 @@ defmodule <%= @project.module %>.MixProject do
       start_permanent: Mix.env() == :prod,
       preferred_cli_env: preferred_cli_env(),
       dialyzer: dialyzer(),
+      package: package(),
       aliases: aliases(),
       deps: deps()
     ] ++ docs()      
@@ -37,7 +38,7 @@ defmodule <%= @project.module %>.MixProject do
     ]
   end
 
-    defp dialyzer do
+  defp dialyzer do
     [
       plt_add_deps: :app_tree,
       plt_add_apps: [:ex_unit, :iex],
