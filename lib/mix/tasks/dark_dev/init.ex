@@ -16,6 +16,7 @@ defmodule Mix.Tasks.DarkDev.Init do
     mix: {"mix.exs.eex", "mix.exs"},
     check: {".check.exs.eex", ".check.exs"},
     credo: {".credo.exs.eex", ".credo.exs"},
+    doctor: {".doctor.exs.eex", ".doctor.exs"},
     dialyzer_ignore: {".dialyzer_ignore.exs.eex", ".dialyzer_ignore.exs"},
     formatter: {".formatter.exs.eex", ".formatter.exs"},
     gitignore: {".gitignore.eex", ".gitignore"},

@@ -5,7 +5,7 @@ defmodule DarkDev.MixProject do
 
   use Mix.Project
 
-  @version "1.0.8"
+  @version "1.0.9"
 
   @app :dark_dev
   @name "DarkDev"
@@ -78,6 +78,7 @@ defmodule DarkDev.MixProject do
       {:credo, ">= 0.0.0", runtime: false},
       {:credo_naming, ">= 0.0.0", runtime: false},
       {:credo_contrib, ">= 0.0.0", runtime: false},
+      {:doctor, ">= 0.0.0", runtime: false},
       {:dialyxir, ">= 0.0.0", runtime: false},
       {:ex_doc, ">= 0.0.0", runtime: false},
       {:sobelow, ">= 0.0.0", runtime: false},
@@ -91,6 +92,7 @@ defmodule DarkDev.MixProject do
     [
       check: :test,
       credo: :test,
+      doctor: :test,
       dialyzer: :test,
       sobelow: :test
     ]

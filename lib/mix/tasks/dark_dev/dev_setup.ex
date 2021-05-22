@@ -9,6 +9,7 @@ defmodule Mix.Tasks.DarkDev.DevSetup do
           :credo
           | :credo_contrib
           | :credo_naming
+          | :doctor
           | :dialyzer
           | :ex_check
           | :ex_doc
@@ -27,6 +28,7 @@ defmodule Mix.Tasks.DarkDev.DevSetup do
     :ok = run_setup(:credo_contrib)
     :ok = run_setup(:credo_naming)
     :ok = run_setup(:dialyzer)
+    :ok = run_setup(:doctor)
     :ok = run_setup(:ex_check)
     :ok = run_setup(:ex_doc)
     :ok = run_setup(:mix_test_watch)
@@ -51,6 +53,11 @@ defmodule Mix.Tasks.DarkDev.DevSetup do
 
   def run_setup(:dialyzer) do
     # "touch '.dialyzer_ignore.exs'"
+    :ok
+  end
+
+  def run_setup(:doctor) do
+    # "touch '.doctor.exs'"
     :ok
   end
 
